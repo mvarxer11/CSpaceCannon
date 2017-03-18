@@ -9,77 +9,125 @@
 import SpriteKit
 import GameplayKit
 
+func radiansToVector(radians:CGFloat)->CGVector {
+    var vector = CGVector()
+    vector.dx = cos(radians)
+    vector.dy = sin(radians)
+    return vector
+}
+
+func randomInRange(low : CGFloat, high : CGFloat) -> CGFloat{
+    var value = CGFloat(arc4random_uniform(10000)) / CGFloat(10000)
+    value = value * (high - low) + low
+    return value
+}
+
 class GameScene: SKScene {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    let SHOOT_SPEED : CGFloat = 1000.0
+    let HaloLowAngle : CGFloat = 200.0 * CGFloat.pi / 180.0
+    let HaloHighAngle : CGFloat = 340.0 * CGFloat.pi / 180.0
+    let HaloSpeed : CGFloat = 200.0
+    let haloCategory : UInt32 = 0x1 << 0
+    let ballCategory : UInt32 = 0x1 << 1
+    let edgeCategory : UInt32 = 0x1 << 2
+    let shieldCategory : UInt32 = 0x1 << 3
+    let lifeBarCategory : UInt32 = 0x1 << 4
+    var ammo = 5
+    var score = 0
+    var gameOver = true
+    
+    private var mainLayer : SKNode?
+    private var menuLayer : SKNode?
+    private var cannon : SKSpriteNode?
+    private var ammoDisplay : SKSpriteNode?
+    private var scoreLabel : SKLabelNode?
+    //private var explosion : SKEmitterNode?
+    private var didShoot = false
+    
+    
+    
+    
     
     override func didMove(to view: SKView) {
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        
+        
+        //self.explosion = SKEmitterNode(fileNamed: "HaloExplosion.sks")
+        
+        self.cannon = self.childNode(withName: "cannon") as? SKSpriteNode
+        self.ammoDisplay = self.childNode(withName: "ammoDisplay") as? SKSpriteNode
+        self.scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
+        self.mainLayer = self.childNode(withName: "mainLayer")
+        self.menuLayer = self.childNode(withName: "menuLayer")
+        
+        // Add edges
+        let leftEdge = SKNode()
+        leftEdge.physicsBody = SKPhysicsBody(edgeFrom: CGPoint.zero, to: CGPoint(x: 0.0, y: self.size.height))
+        leftEdge.physicsBody?.categoryBitMask = edgeCategory
+        leftEdge.position = CGPoint(x: 0, y: 0)
+        self.addChild(leftEdge)
+        
+        let rightEdge = SKNode()
+        rightEdge.physicsBody = SKPhysicsBody(edgeFrom: CGPoint.zero, to: CGPoint(x: 0.0, y: self.size.height))
+        rightEdge.physicsBody?.categoryBitMask = edgeCategory
+        rightEdge.position = CGPoint(x: self.size.width, y: 0.0)
+        self.addChild(rightEdge)
+
+
+    }
+    
+    func shoot (){
+
+        guard let cannon = self.cannon else { return }
+        let ball = SKSpriteNode(imageNamed: "Ball")
+
+        ball.name = "ball"
+        let rotationVector = radiansToVector(radians: (cannon.zRotation))
+        ball.position = CGPoint(x: (cannon.position.x + cannon.size.width * 0.5 * rotationVector.dx),
+                                y: (cannon.position.y + cannon.size.height * 0.5 * rotationVector.dy))
+        ball.xScale = 2
+        ball.yScale = 2
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: 12.0)
+        ball.physicsBody?.velocity = CGVector(dx: rotationVector.dx*SHOOT_SPEED, dy: rotationVector.dy*SHOOT_SPEED)
+        ball.physicsBody?.restitution = 1.0
+        ball.physicsBody?.linearDamping = 0.0
+        ball.physicsBody?.friction = 0
+        
+        
+        
+        
+        mainLayer?.addChild(ball)
+        
+        
+
+        
+    }
+    
+    override func didSimulatePhysics() {
+        
+        if didShoot {
+            shoot()
+            didShoot = false
         }
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
+        mainLayer?.enumerateChildNodes(withName: "ball", using: {
+            (node,stop) in
+            if !self.frame.contains(node.position) {
+                node.removeFromParent()
+            }
             
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        })
     }
-    
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
+  
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        didShoot = true
+//        if !gameOver {
+//            didShoot = true
+//        }
     }
     
     
