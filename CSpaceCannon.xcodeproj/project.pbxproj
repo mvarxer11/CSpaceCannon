@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0F43941E7D789A00911FDF /* HaloExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43931E7D789A00911FDF /* HaloExplosion.sks */; };
+		1B0F43961E7D9C8D00911FDF /* LifeBarExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43951E7D9C8D00911FDF /* LifeBarExplosion.sks */; };
+		1B0F43991E7D9FC900911FDF /* BounceExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43971E7D9FC900911FDF /* BounceExplosion.sks */; };
+		1B0F43AB1E7DC08700911FDF /* Explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43A71E7DBD8500911FDF /* Explosion.caf */; };
+		1B0F43AC1E7DC20F00911FDF /* Bounce.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43A51E7DBD8500911FDF /* Bounce.caf */; };
+		1B0F43AD1E7DC20F00911FDF /* DeepExplosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43A61E7DBD8500911FDF /* DeepExplosion.caf */; };
+		1B0F43AE1E7DC20F00911FDF /* Laser.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43A81E7DBD8500911FDF /* Laser.caf */; };
+		1B0F43AF1E7DC20F00911FDF /* ShieldUp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43A91E7DBD8500911FDF /* ShieldUp.caf */; };
+		1B0F43B01E7DC20F00911FDF /* Zap.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43AA1E7DBD8500911FDF /* Zap.caf */; };
+		1B0F43B21E7ED05400911FDF /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F43B11E7ED05400911FDF /* BallTrail.sks */; };
 		1BF83EBF1E798A1B0040CB6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF83EBE1E798A1B0040CB6C /* AppDelegate.swift */; };
 		1BF83EC11E798A1B0040CB6C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1BF83EC01E798A1B0040CB6C /* GameScene.sks */; };
-		1BF83EC31E798A1B0040CB6C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1BF83EC21E798A1B0040CB6C /* Actions.sks */; };
 		1BF83EC51E798A1B0040CB6C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF83EC41E798A1B0040CB6C /* GameScene.swift */; };
 		1BF83EC71E798A1B0040CB6C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF83EC61E798A1B0040CB6C /* GameViewController.swift */; };
 		1BF83ECA1E798A1B0040CB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF83EC81E798A1B0040CB6C /* Main.storyboard */; };
@@ -18,10 +27,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0F43931E7D789A00911FDF /* HaloExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HaloExplosion.sks; sourceTree = "<group>"; };
+		1B0F43951E7D9C8D00911FDF /* LifeBarExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBarExplosion.sks; sourceTree = "<group>"; };
+		1B0F43971E7D9FC900911FDF /* BounceExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = BounceExplosion.sks; path = ../BounceExplosion.sks; sourceTree = "<group>"; };
+		1B0F43A51E7DBD8500911FDF /* Bounce.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bounce.caf; sourceTree = "<group>"; };
+		1B0F43A61E7DBD8500911FDF /* DeepExplosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DeepExplosion.caf; sourceTree = "<group>"; };
+		1B0F43A71E7DBD8500911FDF /* Explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Explosion.caf; sourceTree = "<group>"; };
+		1B0F43A81E7DBD8500911FDF /* Laser.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Laser.caf; sourceTree = "<group>"; };
+		1B0F43A91E7DBD8500911FDF /* ShieldUp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShieldUp.caf; sourceTree = "<group>"; };
+		1B0F43AA1E7DBD8500911FDF /* Zap.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zap.caf; sourceTree = "<group>"; };
+		1B0F43B11E7ED05400911FDF /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
 		1BF83EBB1E798A1B0040CB6C /* CSpaceCannon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSpaceCannon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF83EBE1E798A1B0040CB6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF83EC01E798A1B0040CB6C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		1BF83EC21E798A1B0040CB6C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		1BF83EC41E798A1B0040CB6C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		1BF83EC61E798A1B0040CB6C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1BF83EC91E798A1B0040CB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,9 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B0F43A41E7DBD7300911FDF /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1B0F43A51E7DBD8500911FDF /* Bounce.caf */,
+				1B0F43A61E7DBD8500911FDF /* DeepExplosion.caf */,
+				1B0F43A71E7DBD8500911FDF /* Explosion.caf */,
+				1B0F43A81E7DBD8500911FDF /* Laser.caf */,
+				1B0F43A91E7DBD8500911FDF /* ShieldUp.caf */,
+				1B0F43AA1E7DBD8500911FDF /* Zap.caf */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		1BF83EB21E798A1B0040CB6C = {
 			isa = PBXGroup;
 			children = (
+				1B0F43A41E7DBD7300911FDF /* sounds */,
 				1BF83EBD1E798A1B0040CB6C /* CSpaceCannon */,
 				1BF83EBC1E798A1B0040CB6C /* Products */,
 			);
@@ -62,8 +94,11 @@
 			children = (
 				1BF83EBE1E798A1B0040CB6C /* AppDelegate.swift */,
 				1BF83EC01E798A1B0040CB6C /* GameScene.sks */,
-				1BF83EC21E798A1B0040CB6C /* Actions.sks */,
 				1BF83EC41E798A1B0040CB6C /* GameScene.swift */,
+				1B0F43B11E7ED05400911FDF /* BallTrail.sks */,
+				1B0F43931E7D789A00911FDF /* HaloExplosion.sks */,
+				1B0F43951E7D9C8D00911FDF /* LifeBarExplosion.sks */,
+				1B0F43971E7D9FC900911FDF /* BounceExplosion.sks */,
 				1BF83EC61E798A1B0040CB6C /* GameViewController.swift */,
 				1BF83EC81E798A1B0040CB6C /* Main.storyboard */,
 				1BF83ECB1E798A1B0040CB6C /* Assets.xcassets */,
@@ -133,11 +168,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0F43AD1E7DC20F00911FDF /* DeepExplosion.caf in Resources */,
 				1BF83ECA1E798A1B0040CB6C /* Main.storyboard in Resources */,
+				1B0F43961E7D9C8D00911FDF /* LifeBarExplosion.sks in Resources */,
 				1BF83EC11E798A1B0040CB6C /* GameScene.sks in Resources */,
+				1B0F43991E7D9FC900911FDF /* BounceExplosion.sks in Resources */,
 				1BF83ECC1E798A1B0040CB6C /* Assets.xcassets in Resources */,
+				1B0F43AF1E7DC20F00911FDF /* ShieldUp.caf in Resources */,
 				1BF83ECF1E798A1B0040CB6C /* LaunchScreen.storyboard in Resources */,
-				1BF83EC31E798A1B0040CB6C /* Actions.sks in Resources */,
+				1B0F43AB1E7DC08700911FDF /* Explosion.caf in Resources */,
+				1B0F43B01E7DC20F00911FDF /* Zap.caf in Resources */,
+				1B0F43941E7D789A00911FDF /* HaloExplosion.sks in Resources */,
+				1B0F43B21E7ED05400911FDF /* BallTrail.sks in Resources */,
+				1B0F43AC1E7DC20F00911FDF /* Bounce.caf in Resources */,
+				1B0F43AE1E7DC20F00911FDF /* Laser.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +356,7 @@
 				1BF83ED51E798A1B0040CB6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
